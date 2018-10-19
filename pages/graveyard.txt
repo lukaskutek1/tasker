@@ -1,0 +1,32 @@
+﻿img <img onClick={this.zmenObrazekZpet} className="left-arrow" src="/static/back.svg" />
+
+
+semantic ui tutorial npm install --save semantic-ui-react, install gulp, build gulp,
+ _document.js => <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" />
+ GG
+
+
+
+//Vypis pole ze statu <select> 
+<select
+  className="dropdown ui"
+  onChange={this.handleChange}
+  value={value}
+>
+  {options.map(item => (
+    <option key={item.value} value={item.value}>
+      {item.name}
+    </option>
+  ))}
+</select>
+<select
+  className="dropdown ui"
+  onChange={this.handleChange2}
+  value={value2}
+>
+  {dates.map(item => (
+    <option key={item.value} value={item.value}>
+      {item.name}
+    </option>
+  ))}
+</select>
