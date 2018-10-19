@@ -1,5 +1,5 @@
 import React from "react";
-
+import { OPTIONS, DATES } from "../constants/const.js";
 import {
   Button,
   Option,
@@ -8,45 +8,6 @@ import {
   Divider,
   TextArea
 } from "semantic-ui-react";
-
-const OPTIONS = {
-  a: {
-    name: "Home",
-    color: "red",
-    icon: "fas fa-home fa-3x",
-    iconStyle: "iconA"
-  },
-  b: {
-    name: "Work",
-    color: "blue",
-    icon: "fas fa-briefcase fa-3x",
-    iconStyle: "iconB"
-  },
-  c: {
-    name: "SCIAL",
-    color: "green",
-    icon: "fas fa-user fa-3x",
-    iconStyle: "iconC"
-  }
-};
-
-const DATES = {
-  a: {
-    name: "Today",
-    description: "",
-    color: "green"
-  },
-  b: {
-    name: "Tomorrow",
-    description: "",
-    color: "red"
-  },
-  c: {
-    name: "Future",
-    description: "",
-    color: "blue"
-  }
-};
 
 export default class Form extends React.Component {
   state = {

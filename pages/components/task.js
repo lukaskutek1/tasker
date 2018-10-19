@@ -1,5 +1,7 @@
 import React from "react";
 
+import { OPTIONS, DATES } from "../constants/const.js";
+
 import {
   Button,
   Option,
@@ -15,49 +17,15 @@ import "../index.scss";
 KNOWN ISSUES(1)
 NEFUNKCI CANCEL TASK <= input rovnou mění state - potřeba změnit!!!!
 */
-const OPTIONS = {
-  a: {
-    name: "Home",
-    color: "red",
-    icon: "fas fa-home fa-3x",
-    iconStyle: "iconA"
-  },
-  b: {
-    name: "Work",
-    color: "blue",
-    icon: "fas fa-briefcase fa-3x",
-    iconStyle: "iconB"
-  },
-  c: {
-    name: "SCIAL",
-    color: "green",
-    icon: "fas fa-user fa-3x",
-    iconStyle: "iconC"
-  }
-};
-
-const DATES = {
-  a: {
-    name: "Today",
-    description: "",
-    color: "green"
-  },
-  b: {
-    name: "Tomorrow",
-    description: "",
-    color: "red"
-  },
-  c: {
-    name: "Future",
-    description: "",
-    color: "blue"
-  }
-};
 
 export default class Task extends React.Component {
-  state = {
-    isEditable: false
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      isEditable: false,
+      cancelTask: { ...props.task }
+    };
+  }
 
   changeTask = e => {
     const { index } = this.props;
@@ -91,6 +59,8 @@ export default class Task extends React.Component {
   };
 
   cancelTask = () => {
+    this.props.changeTaskAuthor(this.props.index, this.state.cancelTask.author);
+    this.props.changeTaskName(this.props.index, this.state.cancelTask.task);
     this.setState({
       isEditable: !this.state.isEditable
     });
@@ -105,7 +75,6 @@ export default class Task extends React.Component {
   render() {
     const { isEditable } = this.state;
     const { task, author, option, date } = this.props;
-    console.log("option: ", option);
     return isEditable ? (
       <div>
         <Divider />
